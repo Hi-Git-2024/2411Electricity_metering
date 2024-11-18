@@ -15,7 +15,7 @@ local ESP_OFF_ON --系统供电控制
 local Power_out --电源输出控制
 local PWM_ID = 18 -- 蜂鸣器控制管脚
 
-
+local a = 1
 
 --继电器输出控制
 local function initialization() -- 内部方法, 外部无法调用
