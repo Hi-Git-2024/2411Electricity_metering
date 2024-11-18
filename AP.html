@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="utf-8"/>
+        <!-- <script src="https://cdn.staticfile.net/jquery/1.10.2/jquery.min.js"></script> -->
+        <title>BSCC 测试治具 WiFi配置界面</title>
+        <!-- fetch api-->
+        <script type="text/javascript">
+            function Device_restart() {
+                fetch("/restart/")
+            }
+            function data_transmission() {// 获取文本翰入框中的内容
+                var content_ssid1 =document.getElementById("ssid1").value;
+                var content_ssid2 =document.getElementById("ssid2").value;
+                var content_ssid3 =document.getElementById("ssid3").value;
+                var content_ssid4 =document.getElementById("ssid4").value;
+                var content_ssid5 =document.getElementById("ssid5").value;
+                var content_ssid6 =document.getElementById("ssid6").value;
+
+                var content_password1 =document.getElementById("password1").value;
+                var content_password2 =document.getElementById("password2").value;
+                var content_password3 =document.getElementById("password3").value;
+                var content_password4 =document.getElementById("password4").value;
+                var content_password5 =document.getElementById("password5").value;
+                var content_password6 =document.getElementById("password6").value;
+
+                var content_yxj1 =document.getElementById("yxj1").value;
+                var content_yxj2 =document.getElementById("yxj2").value;
+                var content_yxj3 =document.getElementById("yxj3").value;
+                var content_yxj4 =document.getElementById("yxj4").value;
+                var content_yxj5 =document.getElementById("yxj5").value;
+                var content_yxj6 =document.getElementById("yxj6").value;
+
+                //var iff = false
+                if(content_ssid1==""){
+                    content_ssid1 = "FFFE"
+                }
+                if(content_password1==""){
+                    content_password1 = "FFFE"
+                }
+                if(content_yxj1==""){
+                    content_yxj1 = "FFFE"
+                }
+                if(content_ssid2==""){
+                    content_ssid2 = "FFFE"
+                }
+                if(content_password2==""){
+                    content_password2 = "FFFE"
+                }
+                if(content_yxj2==""){
+                    content_yxj2 = "FFFE"
+                }
+                if(content_ssid3==""){
+                    content_ssid3 = "FFFE"
+                }
+                if(content_password3==""){
+                    content_password3 = "FFFE"
+                }
+                if(content_yxj3==""){
+                    content_yxj3 = "FFFE"
+                }
+                if(content_ssid4==""){
+                    content_ssid4 = "FFFE"
+                }
+                if(content_password4==""){
+                    content_password4 = "FFFE"
+                }
+                if(content_yxj4==""){
+                    content_yxj4 = "FFFE"
+                }
+                if(content_ssid5==""){
+                    content_ssid5 = "FFFE"
+                }
+                if(content_password5==""){
+                    content_password5 = "FFFE"
+                }
+                if(content_yxj5==""){
+                    content_yxj5 = "FFFE"
+                }
+                if(content_ssid6==""){
+                    content_ssid6 = "FFFE"
+                }
+                if(content_password6==""){
+                    content_password6 = "FFFE"
+                }
+                if(content_yxj6==""){
+                    content_yxj6 = "FFFE"
+                }
+
+                var content_ssid1_password =content_ssid1+":"+content_password1+":"+content_yxj1+":"+
+                                            content_ssid2+":"+content_password2+":"+content_yxj2+":"+
+                                            content_ssid3+":"+content_password3+":"+content_yxj3+":"+
+                                            content_ssid4+":"+content_password4+":"+content_yxj4+":"+
+                                            content_ssid5+":"+content_password5+":"+content_yxj5+":"+
+                                            content_ssid6+":"+content_password6+":"+content_yxj6;
+
+                //document.getElementById("p1").innerHTML=content_ssid1_password
+                fetch("/AP/"+content_ssid1_password)
+            }
+        </script>
+  <style>
+    #div99 {
+          /* background: url(./tp1.jpg) no-repeat 5px 28px; */
+          background: url(/AP) ;
+          }
+  </style>
+    <style>
+            *{
+              /*清除外内边距*/
+              margin: 0;
+              padding: 0;
+          }
+          .box{
+            /*浏览器的宽，700像素点高，背景颜色白色*/
+            width: 100%;
+            height: 700px;
+            background-color: rgb(255, 2255, 255);
+        }
+          h1{
+            width: 70%;
+            height: 100px;
+            margin: 0px auto;
+            line-height: 100px;
+            text-align: center;
+            font-size: 36px;
+            /* background-color: hwb(204 82% 14%); */
+          }
+
+        .box01{
+            /*box宽的70%，与box同高，背景颜色？色*/
+            width: 900px;
+            height: 100%;
+            /* background-color: #eff1ef; */
+            /*外边距：X轴居中*/
+            margin: 0 auto;
+        }
+        #box11{
+            /*box11宽的70%，与box同高，背景颜色？色*/
+            width: 900px;
+            height: 10%;
+            /*背景边框*/
+            /* border: 3px solid #e60e0e; */
+        }
+        .div01{
+            /*div01宽的70%，与box11同高，背景颜色？色*/
+            width: 200px;
+            height: 100%;
+            /* background-color: #6ae4de; */
+            /*外边距：X轴居中*/
+            margin: 0 0 0 10%;
+            float: left;
+        }
+        button{
+            width: 120px;
+            height: 50px;
+            background-color: #EFEFEF;
+            color: #000000;
+            font-size: 25px;
+            margin-top: 30px;
+            margin: 10px 40px;
+        }
+        button:hover{
+            background-color: #3b3dce;
+            color: #ffffffff;/*文本颜色*/
+        }
+        #box12{
+            /*box12宽的70%，与box11同高，背景颜色？色*/
+            width: 100%;
+            height: 90%;
+            /*背景边框*/
+            /* border: 3px solid #5413eb; */
+            margin: 0 0 0 0;
+        }
+        .div21{
+            /*div21宽的70%，与box12同高，背景颜色？色*/
+            width: 900px ;
+            height: 10%;
+            /* background-color: #6ae4de; */
+            /*外边距：X轴居中*/
+            margin: 0 auto;
+            text-align: center;
+            /*背景边框*/
+            /* border: 3px solid #e2df0e; */
+            font-size: 20px;/*文本像素大小*/
+            text-align: left ;/*文本对齐方式*/
+            line-height: 60px;/*行高*/
+            color: #000000;/*文本颜色*/
+        }
+        .text01{
+          width: 200px;
+          height: 25px;
+          font-size: 18px;/*文本像素大小*/
+          text-align: left ;/*文本对齐方式*/
+          line-height: 25px;/*行高*/
+          color: #000000;/*文本颜色*/
+          margin: 10px 0;
+        }
+        .box21{
+          width: 620px;
+          height: 100%;
+          /* border: 1px solid #60d81b; */
+          padding: 0 0 0 35px;
+          float: left;
+        }
+        select{
+          font-size: 20px;/*文本像素大小*/
+          color: #000000;/*文本颜色*/
+        }
+        .div22{
+            width: 400px ;
+            height: 160px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 16px;
+            text-align: left ;
+            line-height: 35px;
+            color: #000000;
+            /* border: 1px solid #e20e0e; */
+            background-color: #EFEFEF;
+            margin: 60px 0 0 480px;
+            padding:  10px  0 0 20px;
+        }
+
+
+    </style>
+<!-- <script>
+  $(document).ready(function(){
+    $("#writeButton3").click(function(){
+      var content =$('#ssid1').val()+":"+$('#password1').val()+":"+document.getElementById("yxj1").value;// 获取文本翰入框中的内容
+      $("#p1").text(content);
+      $.ajax({
+          url :'write.php',// 服务器端处理写入的
+          method:'POST',
+          data:{content:content},
+          success: function(){
+          //写入成功后的操作
+          $("#p7").text('写入数据成功');
+          },
+          error: function(){
+          //写入失败后的操作
+          $("#p7").text('写入数据失败');
+          }
+      })
+    });
+  });
+</script> -->
+
+    </header>
+    <div class="box">
+      <h1>WiFi配置界面</h1>
+        <div class="box01">
+          <div id="box11">
+            <!-- <div class="div01"><button id="writeButton1" >默认配置</button></div>
+            <div class="div01"><button id="writeButton2" >读取配置</button></div> -->
+            <div class="div01"></div>
+            <div class="div01"><button id="writeButton2" onclick="Device_restart()">重启设备</button></div>
+            <div class="div01"><button id="writeButton3" onclick="data_transmission()">保存配置</button></div>
+          </div>
+          <div id="box12">
+            <div class="div21">
+              <div class="box21">
+                1  ssid: <input type="text" class="text01" id="ssid1"  placeholder="请输入WiFI名称">
+                password: <input type="text" class="text01" id="password1" placeholder="请输入密码">
+              </div>
+              选择优先级：
+              <select id="yxj1">
+                <option value="3" >最优级</option>
+                <option value="2" >次优级</option>
+                <option value="1" >普通级</option>
+                <option value="0" >不连接</option>
+              </select>
+            </div>
+            <div class="div21">
+              <div class="box21">
+                2  ssid: <input type="text" class="text01" id="ssid2" placeholder="请输入WiFI名称">
+                password: <input type="text" class="text01" id="password2" placeholder="请输入密码">
+              </div>
+              选择优先级：
+              <select id="yxj2">
+                <option value="3" >最优级</option>
+                <option value="2" >次优级</option>
+                <option value="1" >普通级</option>
+                <option value="0" >不连接</option>
+              </select>
+            </div>
+            <div class="div21">
+              <div class="box21">
+                3  ssid: <input type="text" class="text01" id="ssid3" placeholder="请输入WiFI名称">
+                password: <input type="text" class="text01" id="password3" placeholder="请输入密码">
+              </div>
+              选择优先级：
+              <select id="yxj3">
+                <option value="3" >最优级</option>
+                <option value="2" >次优级</option>
+                <option value="1" >普通级</option>
+                <option value="0" >不连接</option>
+              </select>
+            </div>
+            <div class="div21">
+              <div class="box21">
+                4  ssid: <input type="text" class="text01" id="ssid4" placeholder="请输入WiFI名称">
+                password: <input type="text" class="text01" id="password4" placeholder="请输入密码">
+              </div>
+              选择优先级：
+              <select id="yxj4">
+                <option value="3" >最优级</option>
+                <option value="2" >次优级</option>
+                <option value="1" >普通级</option>
+                <option value="0" >不连接</option>
+              </select>
+            </div>
+            <div class="div21">
+              <div class="box21">
+                5  ssid: <input type="text" class="text01" id="ssid5" placeholder="请输入WiFI名称">
+                password: <input type="text" class="text01" id="password5" placeholder="请输入密码">
+              </div>
+              选择优先级：
+              <select id="yxj5">
+                <option value="3" >最优级</option>
+                <option value="2" >次优级</option>
+                <option value="1" >普通级</option>
+                <option value="0" >不连接</option>
+              </select>
+            </div>
+            <div class="div21">
+              <div class="box21">
+                6  ssid: <input type="text" class="text01" id="ssid6" placeholder="请输入WiFI名称">
+                password: <input type="text" class="text01" id="password6" placeholder="请输入密码">
+              </div>
+              选择优先级：
+              <select id="yxj6">
+                <option value="3" >最优级</option>
+                <option value="2" >次优级</option>
+                <option value="1" >普通级</option>
+                <option value="0" >不连接</option>
+              </select>
+            </div>
+
+            <div class="div22">
+              <p >说明：</p>
+                <!-- <br> -->
+                <p >
+                  不连接：表示不连接该WiFi
+                  </p>
+                  <p >
+                    最优级、次优级、普通级：表示扫描到WiFi后，如果有优先级中同时存在的WiFi，按照优先级的顺序连接。
+                    </p>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div id="div99"></div>
+</html>

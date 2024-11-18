@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--Staticfile CDN-->
+<!-- <script src="https://cdn.staticfile.net/jquery/1.10.2/jquery.min.js"></script> -->
+<!--百度 CDN-->
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<!--又拍云 CDN:-->
+<!-- <script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script> -->
+<!--新浪 CDN-->
+<!-- <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script> -->
+<!--Google CDN    国外用户-->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<title>电磁阀配置</title>
+<style>
+      #div99 {
+      /* background: url(./tp1.jpg) no-repeat 5px 28px; */
+      background: url(/AP) ;
+      }
+</style>
+<style>
+    .bscc{
+        width: 140px;
+        height: 40px;
+        position: relative;
+        top: 9px;
+        left: -10px;
+    }
+    .box0{
+        width: 1080px;
+        height: 100px;
+        margin: 0 auto;
+        /* BFV机制
+            格式化元素
+            元素互补影响，方便元素调整*/
+        overflow: hidden;
+        text-align: center;
+        /*       背景边框  需要屏蔽--------------------------------*/
+        /* border: 1px solid #0bdcf7; */
+        font-size: 35px;/*文本像素大小*/
+        /* text-align: left ;文本对齐方式 */
+        line-height: 100px;/*行高*/
+        color: #000000;/*文本颜色*/
+    }
+    .box{
+        width: 1080px;
+        height: 150px;
+        margin: 0 auto;
+        /*       背景边框  需要屏蔽--------------------------------*/
+        /* border: 1px solid #5bf707; */
+    }
+    .box1{
+        width: 180px;
+        height: 150px;
+        /* margin: 0 auto; */
+        float: left;
+        /*       背景边框  需要屏蔽--------------------------------*/
+        /* border: 1px solid #3208ff; */
+    }
+    .box11{
+        width: 100%;
+        height: 40px;
+        margin: 0 auto;
+        text-align: center;
+        /*       背景边框  需要屏蔽--------------------------------*/
+        /* border: 1px solid #0bdcf7; */
+        font-size: 20px;/*文本像素大小*/
+        /* text-align: left ;文本对齐方式 */
+        line-height: 50px;/*行高*/
+        color: #000000;/*文本颜色*/
+    }
+    .box12{
+        width: 100%;
+        height: 70px;
+        /* margin: 0 auto; */
+        /* text-align: center; */
+        /*       背景边框  需要屏蔽--------------------------------*/
+        /* border: 1px solid #f11013; */
+    }
+    button{
+        width: 120px;
+        height: 50px;
+        background-color: #EFEFEF;
+        color: #000000;
+        font-size: 25px;
+        margin-top: 30px;
+        margin: 10px 30px;
+        border: 1px solid #484444;
+    }
+    button:hover{
+        background-color: #ED7D31;
+        color: #ffffffff;/*文本颜色*/
+        border: 1px solid #ED7D31;
+    }
+    .box13{
+        width: 100%;
+        height: 40px;
+        /* margin: 0 auto; */
+        text-align: center;
+        /*       背景边框  需要屏蔽--------------------------------*/
+        /* border: 1px solid #f11013; */
+    }
+    .boxinput{
+        width: 40px;
+        height: 20px;
+        margin: 0 10px;
+        font-size: 20px;/*文本像素大小*/
+    }
+    #myDiv{
+        width: 1180px;
+        height: 660px;
+        margin: 0 auto;
+        /* 超出容器尺寸时出现滚动条*/
+        overflow: auto;
+        /*       背景边框  需要屏蔽--------------------------------*/
+        /* border: 3px solid #f60d4f; */
+    }
+    .box2{
+        width: 1080px;
+        height: 50px;
+        margin: 0 auto;
+        font-size: 28px;/*文本像素大小*/
+        text-align: left ;/*文本对齐方式 */
+        line-height: 50px;/*行高*/
+        color: #000000;/*文本颜色*/
+        /*       背景边框  需要屏蔽--------------------------------*/
+        /* border: 1px solid #f60d4f; */
+    }
+    .box2_1{
+        width: 1080px;
+        height: 50px;
+        margin: 0 57px;
+        font-size: 28px;/*文本像素大小*/
+        text-align: left ;/*文本对齐方式 */
+        line-height: 50px;/*行高*/
+        color: #000000;/*文本颜色*/
+        /*       背景边框  需要屏蔽--------------------------------*/
+        /* border: 1px solid #23f008; */
+    }
+    input{
+        width: 25px;
+        height: 25px;
+        margin: 0px 10px;
+    }
+    .in001{
+        width: 57px;
+        height: 25px;
+        margin: 0px 10px;
+        font-size: 25px;/*文本像素大小*/
+    }
+</style>
+<script>
+// 复选框的选中状态转换为数组
+function getCheckboxInfo(x) {
+    // 获取所有class为x的元素
+    var checkboxes = document.getElementsByClassName(x);
+    var data = {};
+    //checkboxes[0].checked = true; // 测试用，默认第一个复选框选中
+    // 打印所有复选框的选中状态
+    //console.log(checkboxes[0].checked,checkboxes[1].checked,checkboxes[2].checked,checkboxes[3].checked,checkboxes[4].checked,checkboxes[5].checked,checkboxes[6].checked,checkboxes[7].checked);
+    // 复选框的选中状态转换为数组
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            data[i] = 1;
+        } else {
+            data[i] = 0;
+        }
+    }
+    if (data[0] == undefined ) {
+        alert('填写了无效的配置，请重新填写！');
+    }else {
+        //打印数组
+        console.log(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7]);
+    }
+}
+// 获取时间输入框的值
+function get_time(x) {
+    // 获取id为x的元素
+    var checkboxes = document.getElementById(x);
+    var data = {};
+    //checkboxes.value = 120;//测试用可以直接设置值
+    checkboxes.value = checkboxes.value.replace(/[^\d]/g,'');// 去除非数字字符
+    // 打印所有复选框的选中状态
+    console.log(checkboxes.value);
+}
+
+function control_Key(key){
+		fetch("/Key/" + key)
+}
+
+//判断输入的数字是否有效
+function check_num(x,y) {
+    // 判断输入的数字是否有效
+    if (x==0 || x=="" || y==0 || y=="") {
+        alert('请输入正确的数字！');
+        return false;
+    }
+    else {
+        if (x > y) {
+            alert('起始数字不能大于结束数字！');
+            return false;
+        } else {
+              if (x == y) {
+                  alert('起始数字和结束数字不能相同！');
+                  return false;
+              } else {
+                if (x > 50 || y > 50) {
+                    alert('请输入1-50之间的数字！');
+                    return false;
+                } else {
+                    console.log(x,y);
+                    return true;
+                  }
+              }
+          }
+    }
+}
+
+
+// 按键事件
+function get_data(x) {
+    console.log("按键",x,"被按下");
+    if (x==1) {
+        // 获取按键输入的数字范围
+        // 获取id为"input0_1"的元素
+        var element1 = document.getElementById("input0_1");
+        var element2 = document.getElementById("input0_2");
+        //var x = check_num(element1.value,element2.value);
+        //console.log(x);
+        if (check_num(element1.value,element2.value)) {
+          control_Key("1")
+        }
+    }
+    if (x==2) {
+        var element1 = document.getElementById("input1_1");
+        var element2 = document.getElementById("input1_2");
+        if (check_num(element1.value,element2.value)) {
+          control_Key("2")
+        }
+    }
+    if (x==3) {
+        var element1 = document.getElementById("input2_1");
+        var element2 = document.getElementById("input2_2");
+        if (check_num(element1.value,element2.value)) {
+          control_Key("3")
+        }
+    }
+    if (x==4) {
+        var element1 = document.getElementById("input3_1");
+        var element2 = document.getElementById("input3_2");
+        if (check_num(element1.value,element2.value)) {
+          control_Key("4")
+        }
+    }
+    if (x==5) {
+      control_Key("5")
+    }
+}
+</script>
+
+
+
+<!-- 使用 jQuery AJAX 写入与读取 数据 -->
+<script>
+//读取MCU数据库的数据
+$(document).ready(function(){
+  $("#Key6").click(function(){
+    var content ="FEFF00FFFE"
+    $.ajax({
+        url :'write.php',// 服务器端处理读取的
+        method:'POST',
+        data:{content:content},
+        success: function(data){
+          //写入成功后的操作
+          //控制台输出
+          console.log('读取数据成功');
+          //console.log(data);
+          //将读取到的数据进行解析
+          var data_array = data.split(",");
+          console.log(data_array);
+
+          //将解析的数据写入页面
+          //写入按键
+          var inputElement1 = document.getElementById("input0_1");
+          var inputElement2 = document.getElementById("input0_2");
+          var inputElement3 = document.getElementById("input1_1");
+          var inputElement4 = document.getElementById("input1_2");
+          var inputElement5 = document.getElementById("input2_1");
+          var inputElement6 = document.getElementById("input2_2");
+          var inputElement7 = document.getElementById("input3_1");
+          var inputElement8 = document.getElementById("input3_2");
+          var inputElement9 = document.getElementById("input4_1");
+          var inputElement10 = document.getElementById("input4_2");
+          inputElement1.value = data_array[450];
+          inputElement2.value = data_array[451];
+          inputElement3.value = data_array[452];
+          inputElement4.value = data_array[453];
+          inputElement5.value = data_array[454];
+          inputElement6.value = data_array[455];
+          inputElement7.value = data_array[456];
+          inputElement8.value = data_array[457];
+          inputElement9.value = data_array[458];
+          inputElement10.value = data_array[459];
+
+
+          // 解析数据，获取复选框的选中状态
+          var checkboxElementd = {};
+          for (let index = 0; index < 50; index++) {
+              for (let index2 = 0; index2 < 8 ; index2++) {
+                  if (data_array[index*8+index2] == 1) {
+                      checkboxElementd[index*8+index2] = true;
+                  }else {
+                      checkboxElementd[index*8+index2] = false;
+                  }
+              }
+          }
+          //console.log("checkboxElementd");
+          //console.log(checkboxElementd);//打印解析的数据
+          //将解析的数据写入复选框
+          var checkboxesd = {};
+          for (let index = 0; index < 50; index++) {
+              checkboxesd[index] = document.getElementsByClassName(index+1);// 将class为index+1的元素映射到变量checkboxesd中
+              for (let index2 = 0; index2 < 8; index2++) {
+                  checkboxesd[index][index2].checked = checkboxElementd[index*8+index2];// 将解析的数据写入复选框
+              }
+          }
+
+          // 解析数据获取时间
+          var Relay_timed = {};
+          for (let index = 400; index < 450; index++) {
+              Relay_timed[index-400] = data_array[index];
+          }
+          //console.log("Relay_timed");
+          //console.log(Relay_timed);
+          //写入时间
+          var checkboxes = {};
+          for (let index = 0; index < 50; index++) {
+              checkboxes[index] = document.getElementById(index+1);// 将id为index的元素映射到变量checkboxes中
+              checkboxes[index].value = Relay_timed[index];// 将id为index的元素的值设置为Relay_timed[index-1]
+          }
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+          //写入失败后的操作
+          //控制台输出
+          console.log('Error: ' + textStatus);
+          console.log('读取数据失败');
+        }
+    })
+  });
+});
+//写入数据到MCU数据库
+$(document).ready(function(){
+  $("#Key7").click(function(){
+    //获取复选框的选中状态
+    var checkboxElementd = {};
+    var checkboxElementdd = "";
+    for (let index = 0; index < 50; index++) {
+        for (let index2 = 0; index2 < 8 ; index2++) {
+            checkboxElementd[index*8+index2] = document.getElementsByClassName(index+1)[index2].checked;
+            if (checkboxElementd[index*8+index2] == true) {
+                checkboxElementdd = checkboxElementdd+"1"+"F";
+            }else {
+                checkboxElementdd = checkboxElementdd+"0"+"F";
+            }
+        }
+    }
+    //console.log("复选框的选中状态");
+    //console.log(checkboxElementdd);//打印复选框的选中状态
+
+    //获取时间输入框的值
+    var Relay_timed = {};
+    var Relay_timedd = "";
+    for (let index = 0; index < 50; index++) {
+        Relay_timed[index] = document.getElementById(index+1).value;
+        Relay_timedd = Relay_timedd +Relay_timed[index]+"F";
+    }
+    //console.log("时间输入框的值");
+    //console.log(Relay_timedd);//打印时间输入框的值
+
+    //获取按键输入的数字范围
+    var string = "";
+    var inputElement1 = document.getElementById("input0_1");
+    var inputElement2 = document.getElementById("input0_2");
+    var inputElement3 = document.getElementById("input1_1");
+    var inputElement4 = document.getElementById("input1_2");
+    var inputElement5 = document.getElementById("input2_1");
+    var inputElement6 = document.getElementById("input2_2");
+    var inputElement7 = document.getElementById("input3_1");
+    var inputElement8 = document.getElementById("input3_2");
+    var inputElement9 = document.getElementById("input4_1");
+    var inputElement10 = document.getElementById("input4_2");
+    var element1 = inputElement1.value;
+    var element2 = inputElement2.value;
+    var element3 = inputElement3.value;
+    var element4 = inputElement4.value;
+    var element5 = inputElement5.value;
+    var element6 = inputElement6.value;
+    var element7 = inputElement7.value;
+    var element8 = inputElement8.value;
+    var element9 = inputElement9.value;
+    var element10 = inputElement10.value;
+    //数值转换为字符串
+    element1 = element1.toString();
+    element2 = element2.toString();
+    element3 = element3.toString();
+    element4 = element4.toString();
+    element5 = element5.toString();
+    element6 = element6.toString();
+    element7 = element7.toString();
+    element8 = element8.toString();
+    element9 = element9.toString();
+    element10 = element10.toString();
+    string = element1 + "F" + element2 + "F" + element3 + "F" + element4 + "F" + element5 + "F" + element6 + "F" + element7 + "F" + element8 + "F" + element9 + "F" + element10;
+    //console.log("按键输入的数字范围");
+    //console.log(string);
+
+    var content =checkboxElementdd+Relay_timedd+string;//content是要写入MCU的字符串
+    console.log("写入MCU的字符串");
+    console.log(content);
+    //var content ="FEFF11FFFE"//content是要写入MCU的字符串，这里是测试用的
+    $.ajax({
+        url :'wificonfig.php',// 服务器端处理写入的
+        method:'POST',
+        data:{content:content},
+        success: function(data){
+        //写入成功后的操作
+        //控制台输出
+        console.log('写入数据成功');
+        console.log(data);
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+        //写入失败后的操作
+        //控制台输出
+        console.log('Error: ' + textStatus);
+        console.log('写入数据失败');
+        }
+    })
+
+  });
+});
+</script>
+</head>
+<body>
+<div class="box0">
+  <img class="bscc" src="BSCC.png" alt="图片显示">
+  配置电磁阀参数</div>
+<div class="box">
+    <div class="box1">
+        <div class="box11">测量前</div>
+        <div class="box12"><button id="Key1" onclick="get_data(1)">清洗管道</button></div>
+        <div class="box13">
+            <input class="boxinput" type="number" min=1 max=50 id="input0_1" value=1>
+            <input class="boxinput" type="number" min="1" max="50" id="input0_2" value=1>
+        </div>
+    </div>
+    <div class="box1">
+        <div class="box11">测量中</div>
+        <div class="box12"><button id="Key2" onclick="get_data(2)">测试按键</button></div>
+        <div class="box13">
+            <input class="boxinput" type="number" min="1" max="50" id="input1_1" value=1>
+            <input class="boxinput" type="number" min="1" max="50" id="input1_2" value=1>
+        </div>
+    </div>
+    <div class="box1">
+        <div class="box11">测量后</div>
+        <div class="box12"><button id="Key3" onclick="get_data(3)">清洗管道</button></div>
+        <div class="box13">
+            <input class="boxinput" type="number" min="1" max="50" id="input2_1" value=1>
+            <input class="boxinput" type="number" min="1" max="50" id="input2_2" value=1>
+        </div>
+    </div>
+    <div class="box1">
+        <div class="box11">测量中</div>
+        <div class="box12"><button id="Key4" onclick="get_data(4)">加液按键</button></div>
+        <div class="box13">
+            <input class="boxinput" type="number" min="1" max="50" id="input3_1" value=1>
+            <input class="boxinput" type="number" min="1" max="50" id="input3_2" value=1>
+        </div>
+    </div>
+    <div class="box1">
+        <div class="box11">测量中</div>
+        <div class="box12"><button id="Key5" onclick="get_data(5)">PC控制</button></div>
+        <div class="box13">
+            <input class="boxinput" type="number" min="1" max="50" id="input4_1" value=1>
+            <input class="boxinput" type="number" min="1" max="5" id="input4_2" value=1>
+        </div>
+    </div>
+    <div class="box1">
+        <div class="box12"><button id="Key6" >读取数据</button></div>
+        <div class="box12"><button id="Key7" >保存数据</button></div>
+    </div>
+</div>
+<!-- <br> -->
+<div id="myDiv">
+<div class="box2_1"  >
+  1:V0<input type="checkbox"   class=1>
+    V1<input type="checkbox"   class=1>
+    V2<input type="checkbox"   class=1>
+    V3<input type="checkbox"   class=1>
+    V4<input type="checkbox"   class=1>
+    V5<input type="checkbox"   class=1>
+    V6<input type="checkbox"   class=1>
+    V51<input type="checkbox"  class=1>
+    电磁阀控制时间<input type="number" class="in001" id=1 min="0" max="200" value=0>秒
+</div>
+<div class="box2_1"  >
+    2:V0<input type="checkbox"   class=2>
+      V1<input type="checkbox"   class=2>
+      V2<input type="checkbox"   class=2>
+      V3<input type="checkbox"   class=2>
+      V4<input type="checkbox"   class=2>
+      V5<input type="checkbox"   class=2>
+      V6<input type="checkbox"   class=2>
+      V51<input type="checkbox"  class=2>
+      电磁阀控制时间<input type="number" class="in001" id=2 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2_1"  >
+    3:V0<input type="checkbox"   class=3>
+      V1<input type="checkbox"   class=3>
+      V2<input type="checkbox"   class=3>
+      V3<input type="checkbox"   class=3>
+      V4<input type="checkbox"   class=3>
+      V5<input type="checkbox"   class=3>
+      V6<input type="checkbox"   class=3>
+      V51<input type="checkbox"  class=3>
+      电磁阀控制时间<input type="number" class="in001" id=3 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2_1"  >
+    4:V0<input type="checkbox"   class=4>
+      V1<input type="checkbox"   class=4>
+      V2<input type="checkbox"   class=4>
+      V3<input type="checkbox"   class=4>
+      V4<input type="checkbox"   class=4>
+      V5<input type="checkbox"   class=4>
+      V6<input type="checkbox"   class=4>
+      V51<input type="checkbox"  class=4>
+      电磁阀控制时间<input type="number" class="in001" id=4 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2_1"  >
+    5:V0<input type="checkbox"   class=5>
+      V1<input type="checkbox"   class=5>
+      V2<input type="checkbox"   class=5>
+      V3<input type="checkbox"   class=5>
+      V4<input type="checkbox"   class=5>
+      V5<input type="checkbox"   class=5>
+      V6<input type="checkbox"   class=5>
+      V51<input type="checkbox"  class=5>
+      电磁阀控制时间<input type="number" class="in001" id=5 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2_1"  >
+    6:V0<input type="checkbox"   class=6>
+      V1<input type="checkbox"   class=6>
+      V2<input type="checkbox"   class=6>
+      V3<input type="checkbox"   class=6>
+      V4<input type="checkbox"   class=6>
+      V5<input type="checkbox"   class=6>
+      V6<input type="checkbox"   class=6>
+      V51<input type="checkbox"  class=6>
+      电磁阀控制时间<input type="number" class="in001" id=6 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2_1"  >
+    7:V0<input type="checkbox"   class=7>
+      V1<input type="checkbox"   class=7>
+      V2<input type="checkbox"   class=7>
+      V3<input type="checkbox"   class=7>
+      V4<input type="checkbox"   class=7>
+      V5<input type="checkbox"   class=7>
+      V6<input type="checkbox"   class=7>
+      V51<input type="checkbox"  class=7>
+      电磁阀控制时间<input type="number" class="in001" id=7 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2_1"  >
+    8:V0<input type="checkbox"   class=8>
+      V1<input type="checkbox"   class=8>
+      V2<input type="checkbox"   class=8>
+      V3<input type="checkbox"   class=8>
+      V4<input type="checkbox"   class=8>
+      V5<input type="checkbox"   class=8>
+      V6<input type="checkbox"   class=8>
+      V51<input type="checkbox"  class=8>
+      电磁阀控制时间<input type="number" class="in001" id=8 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2_1"  >
+    9:V0<input type="checkbox"   class=9>
+      V1<input type="checkbox"   class=9>
+      V2<input type="checkbox"   class=9>
+      V3<input type="checkbox"   class=9>
+      V4<input type="checkbox"   class=9>
+      V5<input type="checkbox"   class=9>
+      V6<input type="checkbox"   class=9>
+      V51<input type="checkbox"  class=9>
+      电磁阀控制时间<input type="number" class="in001" id=9 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    10:V0<input type="checkbox"   class=10>
+      V1<input type="checkbox"   class=10>
+      V2<input type="checkbox"   class=10>
+      V3<input type="checkbox"   class=10>
+      V4<input type="checkbox"   class=10>
+      V5<input type="checkbox"   class=10>
+      V6<input type="checkbox"   class=10>
+      V51<input type="checkbox"  class=10>
+      电磁阀控制时间<input type="number" class="in001" id=10 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    11:V0<input type="checkbox"   class=11>
+      V1<input type="checkbox"   class=11>
+      V2<input type="checkbox"   class=11>
+      V3<input type="checkbox"   class=11>
+      V4<input type="checkbox"   class=11>
+      V5<input type="checkbox"   class=11>
+      V6<input type="checkbox"   class=11>
+      V51<input type="checkbox"  class=11>
+      电磁阀控制时间<input type="number" class="in001" id=11 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    12:V0<input type="checkbox"   class=12>
+      V1<input type="checkbox"   class=12>
+      V2<input type="checkbox"   class=12>
+      V3<input type="checkbox"   class=12>
+      V4<input type="checkbox"   class=12>
+      V5<input type="checkbox"   class=12>
+      V6<input type="checkbox"   class=12>
+      V51<input type="checkbox"  class=12>
+      电磁阀控制时间<input type="number" class="in001" id=12 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    13:V0<input type="checkbox"   class=13>
+      V1<input type="checkbox"   class=13>
+      V2<input type="checkbox"   class=13>
+      V3<input type="checkbox"   class=13>
+      V4<input type="checkbox"   class=13>
+      V5<input type="checkbox"   class=13>
+      V6<input type="checkbox"   class=13>
+      V51<input type="checkbox"  class=13>
+      电磁阀控制时间<input type="number" class="in001" id=13 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    14:V0<input type="checkbox"   class=14>
+      V1<input type="checkbox"   class=14>
+      V2<input type="checkbox"   class=14>
+      V3<input type="checkbox"   class=14>
+      V4<input type="checkbox"   class=14>
+      V5<input type="checkbox"   class=14>
+      V6<input type="checkbox"   class=14>
+      V51<input type="checkbox"  class=14>
+      电磁阀控制时间<input type="number" class="in001" id=14 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    15:V0<input type="checkbox"   class=15>
+      V1<input type="checkbox"   class=15>
+      V2<input type="checkbox"   class=15>
+      V3<input type="checkbox"   class=15>
+      V4<input type="checkbox"   class=15>
+      V5<input type="checkbox"   class=15>
+      V6<input type="checkbox"   class=15>
+      V51<input type="checkbox"  class=15>
+      电磁阀控制时间<input type="number" class="in001" id=15 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    16:V0<input type="checkbox"   class=16>
+      V1<input type="checkbox"   class=16>
+      V2<input type="checkbox"   class=16>
+      V3<input type="checkbox"   class=16>
+      V4<input type="checkbox"   class=16>
+      V5<input type="checkbox"   class=16>
+      V6<input type="checkbox"   class=16>
+      V51<input type="checkbox"  class=16>
+      电磁阀控制时间<input type="number" class="in001" id=16 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    17:V0<input type="checkbox"   class=17>
+      V1<input type="checkbox"   class=17>
+      V2<input type="checkbox"   class=17>
+      V3<input type="checkbox"   class=17>
+      V4<input type="checkbox"   class=17>
+      V5<input type="checkbox"   class=17>
+      V6<input type="checkbox"   class=17>
+      V51<input type="checkbox"  class=17>
+      电磁阀控制时间<input type="number" class="in001" id=17 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    18:V0<input type="checkbox"   class=18>
+      V1<input type="checkbox"   class=18>
+      V2<input type="checkbox"   class=18>
+      V3<input type="checkbox"   class=18>
+      V4<input type="checkbox"   class=18>
+      V5<input type="checkbox"   class=18>
+      V6<input type="checkbox"   class=18>
+      V51<input type="checkbox"  class=18>
+      电磁阀控制时间<input type="number" class="in001" id=18 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    19:V0<input type="checkbox"   class=19>
+      V1<input type="checkbox"   class=19>
+      V2<input type="checkbox"   class=19>
+      V3<input type="checkbox"   class=19>
+      V4<input type="checkbox"   class=19>
+      V5<input type="checkbox"   class=19>
+      V6<input type="checkbox"   class=19>
+      V51<input type="checkbox"  class=19>
+      电磁阀控制时间<input type="number" class="in001" id=19 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    20:V0<input type="checkbox"   class=20>
+      V1<input type="checkbox"   class=20>
+      V2<input type="checkbox"   class=20>
+      V3<input type="checkbox"   class=20>
+      V4<input type="checkbox"   class=20>
+      V5<input type="checkbox"   class=20>
+      V6<input type="checkbox"   class=20>
+      V51<input type="checkbox"  class=20>
+      电磁阀控制时间<input type="number" class="in001" id=20 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    21:V0<input type="checkbox"   class=21>
+      V1<input type="checkbox"   class=21>
+      V2<input type="checkbox"   class=21>
+      V3<input type="checkbox"   class=21>
+      V4<input type="checkbox"   class=21>
+      V5<input type="checkbox"   class=21>
+      V6<input type="checkbox"   class=21>
+      V51<input type="checkbox"  class=21>
+      电磁阀控制时间<input type="number" class="in001" id=21 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    22:V0<input type="checkbox"   class=22>
+      V1<input type="checkbox"   class=22>
+      V2<input type="checkbox"   class=22>
+      V3<input type="checkbox"   class=22>
+      V4<input type="checkbox"   class=22>
+      V5<input type="checkbox"   class=22>
+      V6<input type="checkbox"   class=22>
+      V51<input type="checkbox"  class=22>
+      电磁阀控制时间<input type="number" class="in001" id=22 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    23:V0<input type="checkbox"   class=23>
+      V1<input type="checkbox"   class=23>
+      V2<input type="checkbox"   class=23>
+      V3<input type="checkbox"   class=23>
+      V4<input type="checkbox"   class=23>
+      V5<input type="checkbox"   class=23>
+      V6<input type="checkbox"   class=23>
+      V51<input type="checkbox"  class=23>
+      电磁阀控制时间<input type="number" class="in001" id=23 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    24:V0<input type="checkbox"   class=24>
+      V1<input type="checkbox"   class=24>
+      V2<input type="checkbox"   class=24>
+      V3<input type="checkbox"   class=24>
+      V4<input type="checkbox"   class=24>
+      V5<input type="checkbox"   class=24>
+      V6<input type="checkbox"   class=24>
+      V51<input type="checkbox"  class=24>
+      电磁阀控制时间<input type="number" class="in001" id=24 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    25:V0<input type="checkbox"   class=25>
+      V1<input type="checkbox"   class=25>
+      V2<input type="checkbox"   class=25>
+      V3<input type="checkbox"   class=25>
+      V4<input type="checkbox"   class=25>
+      V5<input type="checkbox"   class=25>
+      V6<input type="checkbox"   class=25>
+      V51<input type="checkbox"  class=25>
+      电磁阀控制时间<input type="number" class="in001" id=25 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    26:V0<input type="checkbox"   class=26>
+      V1<input type="checkbox"   class=26>
+      V2<input type="checkbox"   class=26>
+      V3<input type="checkbox"   class=26>
+      V4<input type="checkbox"   class=26>
+      V5<input type="checkbox"   class=26>
+      V6<input type="checkbox"   class=26>
+      V51<input type="checkbox"  class=26>
+      电磁阀控制时间<input type="number" class="in001" id=26 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    27:V0<input type="checkbox"   class=27>
+      V1<input type="checkbox"   class=27>
+      V2<input type="checkbox"   class=27>
+      V3<input type="checkbox"   class=27>
+      V4<input type="checkbox"   class=27>
+      V5<input type="checkbox"   class=27>
+      V6<input type="checkbox"   class=27>
+      V51<input type="checkbox"  class=27>
+      电磁阀控制时间<input type="number" class="in001" id=27 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    28:V0<input type="checkbox"   class=28>
+      V1<input type="checkbox"   class=28>
+      V2<input type="checkbox"   class=28>
+      V3<input type="checkbox"   class=28>
+      V4<input type="checkbox"   class=28>
+      V5<input type="checkbox"   class=28>
+      V6<input type="checkbox"   class=28>
+      V51<input type="checkbox"  class=28>
+      电磁阀控制时间<input type="number" class="in001" id=28 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    29:V0<input type="checkbox"   class=29>
+      V1<input type="checkbox"   class=29>
+      V2<input type="checkbox"   class=29>
+      V3<input type="checkbox"   class=29>
+      V4<input type="checkbox"   class=29>
+      V5<input type="checkbox"   class=29>
+      V6<input type="checkbox"   class=29>
+      V51<input type="checkbox"  class=29>
+      电磁阀控制时间<input type="number" class="in001" id=29 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    30:V0<input type="checkbox"   class=30>
+      V1<input type="checkbox"   class=30>
+      V2<input type="checkbox"   class=30>
+      V3<input type="checkbox"   class=30>
+      V4<input type="checkbox"   class=30>
+      V5<input type="checkbox"   class=30>
+      V6<input type="checkbox"   class=30>
+      V51<input type="checkbox"  class=30>
+      电磁阀控制时间<input type="number" class="in001" id=30 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    31:V0<input type="checkbox"   class=31>
+      V1<input type="checkbox"   class=31>
+      V2<input type="checkbox"   class=31>
+      V3<input type="checkbox"   class=31>
+      V4<input type="checkbox"   class=31>
+      V5<input type="checkbox"   class=31>
+      V6<input type="checkbox"   class=31>
+      V51<input type="checkbox"  class=31>
+      电磁阀控制时间<input type="number" class="in001" id=31 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    32:V0<input type="checkbox"   class=32>
+      V1<input type="checkbox"   class=32>
+      V2<input type="checkbox"   class=32>
+      V3<input type="checkbox"   class=32>
+      V4<input type="checkbox"   class=32>
+      V5<input type="checkbox"   class=32>
+      V6<input type="checkbox"   class=32>
+      V51<input type="checkbox"  class=32>
+      电磁阀控制时间<input type="number" class="in001" id=32 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    33:V0<input type="checkbox"   class=33>
+      V1<input type="checkbox"   class=33>
+      V2<input type="checkbox"   class=33>
+      V3<input type="checkbox"   class=33>
+      V4<input type="checkbox"   class=33>
+      V5<input type="checkbox"   class=33>
+      V6<input type="checkbox"   class=33>
+      V51<input type="checkbox"  class=33>
+      电磁阀控制时间<input type="number" class="in001" id=33 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    34:V0<input type="checkbox"   class=34>
+      V1<input type="checkbox"   class=34>
+      V2<input type="checkbox"   class=34>
+      V3<input type="checkbox"   class=34>
+      V4<input type="checkbox"   class=34>
+      V5<input type="checkbox"   class=34>
+      V6<input type="checkbox"   class=34>
+      V51<input type="checkbox"  class=34>
+      电磁阀控制时间<input type="number" class="in001" id=34 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    35:V0<input type="checkbox"   class=35>
+      V1<input type="checkbox"   class=35>
+      V2<input type="checkbox"   class=35>
+      V3<input type="checkbox"   class=35>
+      V4<input type="checkbox"   class=35>
+      V5<input type="checkbox"   class=35>
+      V6<input type="checkbox"   class=35>
+      V51<input type="checkbox"  class=35>
+      电磁阀控制时间<input type="number" class="in001" id=35 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    36:V0<input type="checkbox"   class=36>
+      V1<input type="checkbox"   class=36>
+      V2<input type="checkbox"   class=36>
+      V3<input type="checkbox"   class=36>
+      V4<input type="checkbox"   class=36>
+      V5<input type="checkbox"   class=36>
+      V6<input type="checkbox"   class=36>
+      V51<input type="checkbox"  class=36>
+      电磁阀控制时间<input type="number" class="in001" id=36 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    37:V0<input type="checkbox"   class=37>
+      V1<input type="checkbox"   class=37>
+      V2<input type="checkbox"   class=37>
+      V3<input type="checkbox"   class=37>
+      V4<input type="checkbox"   class=37>
+      V5<input type="checkbox"   class=37>
+      V6<input type="checkbox"   class=37>
+      V51<input type="checkbox"  class=37>
+      电磁阀控制时间<input type="number" class="in001" id=37 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    38:V0<input type="checkbox"   class=38>
+      V1<input type="checkbox"   class=38>
+      V2<input type="checkbox"   class=38>
+      V3<input type="checkbox"   class=38>
+      V4<input type="checkbox"   class=38>
+      V5<input type="checkbox"   class=38>
+      V6<input type="checkbox"   class=38>
+      V51<input type="checkbox"  class=38>
+      电磁阀控制时间<input type="number" class="in001" id=38 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    39:V0<input type="checkbox"   class=39>
+      V1<input type="checkbox"   class=39>
+      V2<input type="checkbox"   class=39>
+      V3<input type="checkbox"   class=39>
+      V4<input type="checkbox"   class=39>
+      V5<input type="checkbox"   class=39>
+      V6<input type="checkbox"   class=39>
+      V51<input type="checkbox"  class=39>
+      电磁阀控制时间<input type="number" class="in001" id=39 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    40:V0<input type="checkbox"   class=40>
+      V1<input type="checkbox"   class=40>
+      V2<input type="checkbox"   class=40>
+      V3<input type="checkbox"   class=40>
+      V4<input type="checkbox"   class=40>
+      V5<input type="checkbox"   class=40>
+      V6<input type="checkbox"   class=40>
+      V51<input type="checkbox"  class=40>
+      电磁阀控制时间<input type="number" class="in001" id=40 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    41:V0<input type="checkbox"   class=41>
+      V1<input type="checkbox"   class=41>
+      V2<input type="checkbox"   class=41>
+      V3<input type="checkbox"   class=41>
+      V4<input type="checkbox"   class=41>
+      V5<input type="checkbox"   class=41>
+      V6<input type="checkbox"   class=41>
+      V51<input type="checkbox"  class=41>
+      电磁阀控制时间<input type="number" class="in001" id=41 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    42:V0<input type="checkbox"   class=42>
+      V1<input type="checkbox"   class=42>
+      V2<input type="checkbox"   class=42>
+      V3<input type="checkbox"   class=42>
+      V4<input type="checkbox"   class=42>
+      V5<input type="checkbox"   class=42>
+      V6<input type="checkbox"   class=42>
+      V51<input type="checkbox"  class=42>
+      电磁阀控制时间<input type="number" class="in001" id=42 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    43:V0<input type="checkbox"   class=43>
+      V1<input type="checkbox"   class=43>
+      V2<input type="checkbox"   class=43>
+      V3<input type="checkbox"   class=43>
+      V4<input type="checkbox"   class=43>
+      V5<input type="checkbox"   class=43>
+      V6<input type="checkbox"   class=43>
+      V51<input type="checkbox"  class=43>
+      电磁阀控制时间<input type="number" class="in001" id=43 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    44:V0<input type="checkbox"   class=44>
+      V1<input type="checkbox"   class=44>
+      V2<input type="checkbox"   class=44>
+      V3<input type="checkbox"   class=44>
+      V4<input type="checkbox"   class=44>
+      V5<input type="checkbox"   class=44>
+      V6<input type="checkbox"   class=44>
+      V51<input type="checkbox"  class=44>
+      电磁阀控制时间<input type="number" class="in001" id=44 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    45:V0<input type="checkbox"   class=45>
+      V1<input type="checkbox"   class=45>
+      V2<input type="checkbox"   class=45>
+      V3<input type="checkbox"   class=45>
+      V4<input type="checkbox"   class=45>
+      V5<input type="checkbox"   class=45>
+      V6<input type="checkbox"   class=45>
+      V51<input type="checkbox"  class=45>
+      电磁阀控制时间<input type="number" class="in001" id=45 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    46:V0<input type="checkbox"   class=46>
+      V1<input type="checkbox"   class=46>
+      V2<input type="checkbox"   class=46>
+      V3<input type="checkbox"   class=46>
+      V4<input type="checkbox"   class=46>
+      V5<input type="checkbox"   class=46>
+      V6<input type="checkbox"   class=46>
+      V51<input type="checkbox"  class=46>
+      电磁阀控制时间<input type="number" class="in001" id=46 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    47:V0<input type="checkbox"   class=47>
+      V1<input type="checkbox"   class=47>
+      V2<input type="checkbox"   class=47>
+      V3<input type="checkbox"   class=47>
+      V4<input type="checkbox"   class=47>
+      V5<input type="checkbox"   class=47>
+      V6<input type="checkbox"   class=47>
+      V51<input type="checkbox"  class=47>
+      电磁阀控制时间<input type="number" class="in001" id=47 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    48:V0<input type="checkbox"   class=48>
+      V1<input type="checkbox"   class=48>
+      V2<input type="checkbox"   class=48>
+      V3<input type="checkbox"   class=48>
+      V4<input type="checkbox"   class=48>
+      V5<input type="checkbox"   class=48>
+      V6<input type="checkbox"   class=48>
+      V51<input type="checkbox"  class=48>
+      电磁阀控制时间<input type="number" class="in001" id=48 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    49:V0<input type="checkbox"   class=49>
+      V1<input type="checkbox"   class=49>
+      V2<input type="checkbox"   class=49>
+      V3<input type="checkbox"   class=49>
+      V4<input type="checkbox"   class=49>
+      V5<input type="checkbox"   class=49>
+      V6<input type="checkbox"   class=49>
+      V51<input type="checkbox"  class=49>
+      电磁阀控制时间<input type="number" class="in001" id=49 min="0" max="200" value=0>秒
+  </div>
+  <div class="box2"  >
+    50:V0<input type="checkbox"   class=50>
+      V1<input type="checkbox"   class=50>
+      V2<input type="checkbox"   class=50>
+      V3<input type="checkbox"   class=50>
+      V4<input type="checkbox"   class=50>
+      V5<input type="checkbox"   class=50>
+      V6<input type="checkbox"   class=50>
+      V51<input type="checkbox"  class=50>
+      电磁阀控制时间<input type="number" class="in001" id=50 min="0" max="200" value=0>秒
+  </div>
+</div>
+<div id="div99"></div>
+</body>
+</html>
