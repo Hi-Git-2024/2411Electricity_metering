@@ -11,42 +11,44 @@ local gpio_init = {}
 ]]
 
 ---------------------初始化GPIO-----------------------------
-local ESP_OFF_ON --系统供电控制
-local Power_out --电源输出控制
-local PWM_ID = 18 -- 蜂鸣器控制管脚
+local ESP_OFF_ON = 9 --系统供电控制管脚
+local K_OFF_ON = 5 --电源输出控制管脚
+local BUZZER = 18 -- 蜂鸣器控制管脚
 
-local a = 1
+local ESP_Power -- 系统供电控制函数
+local AC_Power   -- 电源输出控制函数
 
 --继电器输出控制
 local function initialization() -- 内部方法, 外部无法调用
     --设置为上拉输出模式，初始状态为硬件匹配的电平
-    ESP_OFF_ON=gpio.setup(9, 1 ,gpio.PULLUP)
-    Power_out=gpio.setup(5, 0 ,gpio.PULLUP)
+    ESP_Power=gpio.setup(ESP_OFF_ON, 1 ,gpio.PULLUP)
+    AC_Power=gpio.setup(K_OFF_ON, 0 ,gpio.PULLUP)
+    print("GPIO初始化完成")
 end
 initialization() --直接调用，在main.lua文件中require"hardware_init"的时候则会调用该函数
 
 -- 定义继电器输出函数,输入参数为继电器的输出状态，
-local function Relay_output(ESP,Power)
-    print("ESP_OFF_ON=",ESP,"Power_out=",Power)
+local function Relay_output(ESP,AC)
+    print("ESP_OFF_ON=",ESP,"Power_out=",AC)
 	if ESP then
 		print("打开ESP")
-        ESP_OFF_ON(1)
+        ESP_Power(1)
 	else
 		print("关闭ESP")
-        ESP_OFF_ON(0)
+        ESP_Power(0)
 	end
-	if Power then
-		print("打开电源")
-        Power_out(1)
+	if AC then
+		print("打开AC电源")
+        AC_Power(1)
 	else
-		print("关闭电源")
-        Power_out(0)
+		print("关闭AC电源")
+        AC_Power(0)
 	end
 end
 
 --单独订阅，回调函数，接收系统与电源的输出控制命令
-sys.subscribe("ESP_Power",function(data)
-    Relay_output(data.ESP,data.Power)
+sys.subscribe("ESP_AC_Control",function(data)
+    Relay_output(data.ESP,data.AC)
 end)
 
 
@@ -82,11 +84,6 @@ local function play_melody()
     end
 end
 
-
-
-
-
-
 sys.taskInit(function()
     --防止开机日志没有打印出来
     sys.wait(1000)
@@ -97,11 +94,6 @@ sys.taskInit(function()
     play_melody()
     beep_control(false)
     while 1 do
-
-
-
-
-
         sys.wait(3000)
     end
 end)
