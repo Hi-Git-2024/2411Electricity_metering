@@ -6,10 +6,24 @@ VERSION = "1.0.0"
 sys = require("sys")
 require("sysplus")
 
+--[[
+完成继电器的控制
+完成温度的采集
+完成蜂鸣器提示音的控制
+
+下一步是完成电量计量的功能
+再下一步是完成按键的控制功能
+再下一步是完成OLED显示功能
+再下一步是充电管理功能显示界面与按键的互动
+再下一步是完成WEB页面的设计，实现界面与功能的互动
+]]
 
 --硬件初始化
 local gpio_init = require "gpio_init"
-
+local pwm_init = require "pwm_init"
+local DS18B20_init = require "DS18B20_init"
+local HLW8032 = require "HLW8032"
+local string_HEX = require "string_HEX"
 
 --软件始化
 --local Power_time = require "Power_time"--获取开机次数与上次运行时间标志位
