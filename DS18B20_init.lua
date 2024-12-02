@@ -96,7 +96,7 @@ end
 
 sys.taskInit(function()
     while 1 do
-        sys.wait(100)
+        sys.wait(300)
         --local val,result = sensor.ds18b20(ds18b20_pin, true)
         --log.info("ds18b20", val,result)
 		--local filtered_temperature = weighted_average_filter(temperature_data, weights)
